@@ -1,0 +1,2974 @@
+/* =========================================================
+   EVENTA MG — ACCUEIL
+   Design : Tech · Créatif · Communauté
+   ========================================================= */
+
+
+/* =========================================================
+   HERO PRINCIPAL
+   ========================================================= */
+
+.heros {
+  position: relative;
+
+  min-height: 760px;
+
+  padding:
+    clamp(105px, 10vw, 140px)
+    0
+    clamp(38px, 5vw, 58px);
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(255, 255, 255, 0.82),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(123, 75, 224, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      var(--lavande) 0%,
+      #ded6f8 45%,
+      #cbbcf1 100%
+    );
+
+  border-radius:
+    0 0
+    var(--r-xl)
+    var(--r-xl);
+}
+
+
+/* =========================================================
+   GRILLE DÉCORATIVE EN ARRIÈRE-PLAN
+   ========================================================= */
+
+.heros::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(62, 15, 141, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(62, 15, 141, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    55px 55px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7),
+      transparent 85%
+    );
+
+  pointer-events: none;
+
+  z-index: -3;
+}
+
+
+/* =========================================================
+   GRAND HALO DÉCORATIF
+   ========================================================= */
+
+.heros::after {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  top: -320px;
+  right: -220px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.2) 42%,
+      transparent 70%
+    );
+
+  filter: blur(5px);
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  animation:
+    heroLight 10s ease-in-out infinite
+    alternate;
+}
+
+
+/* =========================================================
+   FORMES FLOTTANTES
+   ========================================================= */
+
+.heros__decor {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+.heros__decor--1 {
+  width: 430px;
+  height: 430px;
+
+  top: -230px;
+  right: 15%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.45);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.15),
+      transparent 65%
+    );
+
+  animation:
+    heroFloat 10s ease-in-out infinite
+    alternate;
+}
+
+
+.heros__decor--2 {
+  width: 310px;
+  height: 310px;
+
+  left: -150px;
+  bottom: -170px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(123, 75, 224, 0.13),
+      transparent 70%
+    );
+
+  filter: blur(10px);
+
+  animation:
+    heroFloat 12s ease-in-out infinite
+    alternate-reverse;
+}
+
+
+/* =========================================================
+   GRILLE PRINCIPALE
+   ========================================================= */
+
+.heros__grille {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(420px, 1.05fr);
+
+  gap:
+    clamp(35px, 5vw, 80px);
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   CONTENU GAUCHE
+   ========================================================= */
+
+.heros__contenu {
+  position: relative;
+
+  z-index: 4;
+
+  max-width: 650px;
+}
+
+
+/* =========================================================
+   SIGNAL
+   ========================================================= */
+
+.heros__signal {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  padding:
+    8px
+    14px;
+
+  border:
+    1px solid
+    rgba(62, 15, 141, 0.1);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  box-shadow:
+    0 8px 25px
+    rgba(62, 15, 141, 0.05);
+
+  color: #62597e;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.015em;
+
+  animation:
+    signalAppear
+    0.8s
+    ease both;
+}
+
+
+.heros__signal-dot {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--violet);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(62, 15, 141, 0.08);
+
+  animation:
+    signalPulse
+    2.5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   TITRE PRINCIPAL
+   ========================================================= */
+
+.heros h1 {
+  max-width: 12ch;
+
+  margin: 0;
+
+  font-family: var(--titre);
+
+  /*
+     Taille volontairement réduite.
+     Le titre ne doit plus prendre toute la page.
+  */
+  font-size:
+    clamp(
+      2.65rem,
+      4.5vw,
+      3.5rem
+    );
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 800;
+
+  color: var(--texte);
+
+  animation:
+    titleAppear
+    0.9s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    both;
+}
+
+
+/* =========================================================
+   POINTS ENTRE LES MOTS
+   ========================================================= */
+
+.heros__separator {
+  color: var(--violet);
+
+  font-weight: 400;
+
+  opacity: 0.45;
+
+  margin-inline: 2px;
+}
+
+
+/* =========================================================
+   LIGNE VISUELLE SOUS LE TITRE
+   ========================================================= */
+
+.heros h1::after {
+  content: "";
+
+  display: block;
+
+  width: 72px;
+  height: 4px;
+
+  margin-top: 18px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--violet),
+      var(--iris),
+      transparent
+    );
+
+  transform-origin: left;
+
+  animation:
+    lineReveal
+    1s
+    0.45s
+    ease
+    both;
+}
+
+
+/* =========================================================
+   TEXTE PRINCIPAL
+   ========================================================= */
+
+.heros__texte {
+  max-width: 590px;
+
+  margin-top: 24px;
+
+  color: #453c63;
+
+  font-size:
+    clamp(
+      1rem,
+      1.25vw,
+      1.12rem
+    );
+
+  line-height: 1.72;
+
+  animation:
+    contentAppear
+    1s
+    0.15s
+    ease
+    both;
+}
+
+
+.heros__texte strong {
+  color: var(--violet);
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   SECOND TEXTE
+   ========================================================= */
+
+.heros__sous-texte {
+  max-width: 540px;
+
+  margin-top: 12px;
+
+  color: #6a6383;
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+
+  animation:
+    contentAppear
+    1s
+    0.25s
+    ease
+    both;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.heros__actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 28px;
+
+  animation:
+    contentAppear
+    1s
+    0.35s
+    ease
+    both;
+}
+
+
+.heros__actions .btn {
+  min-height: 48px;
+
+  padding-inline: 20px;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.heros__actions .btn:hover {
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================================
+   FLÈCHE
+   ========================================================= */
+
+.btn__fleche {
+  display: inline-block;
+
+  margin-left: 8px;
+
+  font-size: 1.1rem;
+
+  transition:
+    transform 0.35s
+    cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+.btn:hover .btn__fleche {
+  transform:
+    translateX(6px);
+}
+
+
+/* =========================================================
+   CHIFFRES
+   ========================================================= */
+
+.heros__chiffres {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 26px;
+
+  margin-top: 34px;
+
+  padding-top: 21px;
+
+  border-top:
+    1px solid
+    rgba(62, 15, 141, 0.1);
+
+  animation:
+    contentAppear
+    1s
+    0.45s
+    ease
+    both;
+}
+
+
+.hero-chiffre {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.hero-chiffre strong {
+  font-family: var(--titre);
+
+  font-size: 1.35rem;
+
+  line-height: 1;
+
+  color: var(--violet);
+}
+
+
+.hero-chiffre span {
+  font-size: 0.7rem;
+
+  color: #6d6683;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SCÈNE 3D — EVENTA MG
+   ========================================================= */
+
+.scene {
+  position: relative;
+
+  width: min(100%, 590px);
+  aspect-ratio: 1 / 1;
+
+  margin-inline: auto;
+
+  perspective: 1400px;
+
+  transform-style: preserve-3d;
+
+  animation:
+    sceneAppear
+    1.2s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    both;
+}
+
+
+/* =========================================================
+   GRILLE INTERNE
+   ========================================================= */
+
+.scene__grid {
+  position: absolute;
+
+  inset: 8%;
+
+  border-radius: 50%;
+
+  background-image:
+    linear-gradient(
+      rgba(62, 15, 141, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(62, 15, 141, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 28px 28px;
+
+  mask-image:
+    radial-gradient(
+      circle,
+      #000 0%,
+      transparent 70%
+    );
+
+  opacity: 0.65;
+
+  z-index: 0;
+
+  transform:
+    perspective(900px)
+    rotateX(62deg);
+
+  animation:
+    gridMove
+    14s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   HALOS FLOTTANTS
+   ========================================================= */
+
+.scene__glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(15px);
+
+  z-index: 0;
+}
+
+
+.scene__glow--1 {
+  width: 260px;
+  height: 260px;
+
+  top: 8%;
+  right: 5%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(123, 75, 224, 0.20),
+      transparent 70%
+    );
+
+  animation:
+    glowFloat1
+    8s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+.scene__glow--2 {
+  width: 230px;
+  height: 230px;
+
+  left: 4%;
+  bottom: 8%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(62, 15, 141, 0.13),
+      transparent 70%
+    );
+
+  animation:
+    glowFloat2
+    10s
+    ease-in-out
+    infinite
+    alternate-reverse;
+}
+
+
+/* =========================================================
+   ORBITES
+   ========================================================= */
+
+.scene__orbit {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border: 1px solid
+    rgba(62, 15, 141, 0.13);
+
+  transform-style: preserve-3d;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+.scene__orbit--1 {
+  width: 74%;
+  height: 74%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(68deg)
+    rotateZ(0deg);
+
+  animation:
+    orbitOne
+    18s
+    linear
+    infinite;
+}
+
+
+.scene__orbit--2 {
+  width: 88%;
+  height: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(70deg)
+    rotateZ(55deg);
+
+  border-style: dashed;
+
+  animation:
+    orbitTwo
+    22s
+    linear
+    infinite;
+}
+
+
+.scene__orbit--3 {
+  width: 62%;
+  height: 92%;
+
+  transform:
+    translate(-50%, -50%)
+    rotateY(68deg)
+    rotateZ(25deg);
+
+  opacity: 0.7;
+
+  animation:
+    orbitThree
+    25s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   POINT LUMINEUX SUR LES ORBITES
+   ========================================================= */
+
+.scene__orbit span {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      #ffffff,
+      var(--iris) 45%,
+      var(--violet)
+    );
+
+  box-shadow:
+    0 0 16px
+    rgba(123, 75, 224, 0.7);
+
+  top: -4px;
+  left: 50%;
+}
+
+
+/* =========================================================
+   CANVAS
+   ========================================================= */
+
+.scene canvas {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      0 10px 30px
+      rgba(62, 15, 141, 0.08)
+    );
+}
+
+
+/* =========================================================
+   HALO CENTRAL
+   ========================================================= */
+
+.scene__halo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 330px;
+  height: 330px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(123, 75, 224, 0.34) 0%,
+      rgba(123, 75, 224, 0.15) 32%,
+      rgba(123, 75, 224, 0.04) 58%,
+      transparent 74%
+    );
+
+  filter: blur(8px);
+
+  z-index: 2;
+
+  animation:
+    logoHalo
+    5s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* =========================================================
+   MÉTIERS
+   ========================================================= */
+
+.scene__metiers {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 10;
+
+  transform-style: preserve-3d;
+
+  pointer-events: none;
+}
+
+
+.scene__metier {
+  position: absolute;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    9px
+    13px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.75);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.58);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(62, 15, 141, 0.10),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.9);
+
+  color: var(--texte);
+
+  font-family: var(--corps);
+
+  font-size: 0.70rem;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  transform-style: preserve-3d;
+
+  animation:
+    metierFloat
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   POINT DES MÉTIERS
+   ========================================================= */
+
+.scene__metier-dot {
+  width: 7px;
+  height: 7px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      #ffffff,
+      var(--iris) 40%,
+      var(--violet)
+    );
+
+  box-shadow:
+    0 0 0 4px
+    rgba(123, 75, 224, 0.09),
+
+    0 0 14px
+    rgba(123, 75, 224, 0.45);
+
+  animation:
+    dotPulse
+    2.4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   POSITION DES 6 MÉTIERS
+   ========================================================= */
+
+/*
+   1 — Site
+*/
+
+.scene__metier--1 {
+  top: 11%;
+  left: 8%;
+
+  animation-delay: -0.5s;
+
+  transform:
+    translateZ(35px)
+    rotate(-4deg);
+}
+
+
+/*
+   2 — Automatisation IA
+*/
+
+.scene__metier--2 {
+  top: 8%;
+  right: 5%;
+
+  animation-delay: -1.3s;
+
+  transform:
+    translateZ(60px)
+    rotate(4deg);
+}
+
+
+/*
+   3 — Photographie
+*/
+
+.scene__metier--3 {
+  top: 47%;
+  right: -2%;
+
+  animation-delay: -2.1s;
+
+  transform:
+    translateZ(80px)
+    rotate(5deg);
+}
+
+
+/*
+   4 — Mathématiques
+*/
+
+.scene__metier--4 {
+  bottom: 10%;
+  right: 7%;
+
+  animation-delay: -0.9s;
+
+  transform:
+    translateZ(45px)
+    rotate(-4deg);
+}
+
+
+/*
+   5 — Sonorisation
+*/
+
+.scene__metier--5 {
+  bottom: 7%;
+  left: 7%;
+
+  animation-delay: -1.8s;
+
+  transform:
+    translateZ(70px)
+    rotate(4deg);
+}
+
+
+/*
+   6 — Développement
+*/
+
+.scene__metier--6 {
+  top: 47%;
+  left: -3%;
+
+  animation-delay: -2.7s;
+
+  transform:
+    translateZ(55px)
+    rotate(-5deg);
+}
+
+
+/* =========================================================
+   NOYAU CENTRAL
+   ========================================================= */
+
+.scene__noyau {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 215px;
+  height: 215px;
+
+  display: grid;
+
+  place-items: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  z-index: 15;
+
+  background:
+    radial-gradient(
+      circle at 30% 18%,
+      #cbb9ff 0%,
+      #9167f4 22%,
+      var(--violet) 58%,
+      var(--violet-fonce) 100%
+    );
+
+  box-shadow:
+
+    inset 0 3px 3px
+    rgba(255, 255, 255, 0.75),
+
+    inset 0 -25px 40px
+    rgba(43, 10, 99, 0.30),
+
+    0 30px 70px
+    rgba(62, 15, 141, 0.32),
+
+    0 0 100px
+    rgba(123, 75, 224, 0.25);
+
+  transform-style: preserve-3d;
+
+  animation:
+    coreFloat
+    5.5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ANNEAU CENTRAL 1
+   ========================================================= */
+
+.scene__noyau::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -16px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.75);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 25px
+    rgba(255, 255, 255, 0.16);
+
+  animation:
+    ringPulse
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ANNEAU CENTRAL 2
+   ========================================================= */
+
+.scene__noyau::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -38px;
+
+  border:
+    1px solid
+    rgba(123, 75, 224, 0.30);
+
+  border-top-color:
+    rgba(255, 255, 255, 0.80);
+
+  border-right-color:
+    transparent;
+
+  border-radius: 50%;
+
+  animation:
+    ringRotate
+    12s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   CERCLE DU LOGO
+   ========================================================= */
+
+.scene__logo-ring {
+  position: relative;
+
+  width: 160px;
+  height: 160px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f4f0ff
+    );
+
+  border:
+    5px solid
+    rgba(255, 255, 255, 0.40);
+
+  box-shadow:
+
+    0 15px 40px
+    rgba(43, 10, 99, 0.22),
+
+    inset 0 2px 10px
+    rgba(255, 255, 255, 0.95);
+
+  overflow: hidden;
+
+  transform:
+    translateZ(30px);
+
+  animation:
+    logoFloat
+    5.5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   REFLET DU LOGO
+   ========================================================= */
+
+.scene__logo-shine {
+  position: absolute;
+
+  top: -70%;
+  left: -100%;
+
+  width: 55%;
+  height: 240%;
+
+  transform:
+    rotate(25deg);
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.75),
+      transparent
+    );
+
+  z-index: 4;
+
+  animation:
+    logoShine
+    4.5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   IMAGE LOGO
+   ========================================================= */
+
+.scene__logo {
+  position: relative;
+
+  z-index: 3;
+
+  width: 84%;
+  height: 84%;
+
+  object-fit: contain;
+
+  display: block;
+
+  filter:
+    drop-shadow(
+      0 8px 14px
+      rgba(43, 10, 99, 0.15)
+    );
+
+  transition:
+    transform 0.6s
+    cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+.scene:hover .scene__logo {
+  transform:
+    scale(1.08)
+    rotate(2deg);
+}
+
+
+/* =========================================================
+   ORBES
+   ========================================================= */
+
+.scene__orb {
+  position: absolute;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #ffffff,
+      var(--iris) 42%,
+      var(--violet)
+    );
+
+  box-shadow:
+
+    0 0 0 6px
+    rgba(123, 75, 224, 0.08),
+
+    0 0 22px
+    rgba(123, 75, 224, 0.35);
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+
+.scene__orb--1 {
+  width: 12px;
+  height: 12px;
+
+  top: 16%;
+  right: 21%;
+
+  animation:
+    orbFloat
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+.scene__orb--2 {
+  width: 8px;
+  height: 8px;
+
+  left: 19%;
+  bottom: 25%;
+
+  animation:
+    orbFloat
+    5s
+    0.7s
+    ease-in-out
+    infinite;
+}
+
+
+.scene__orb--3 {
+  width: 7px;
+  height: 7px;
+
+  right: 22%;
+  bottom: 18%;
+
+  animation:
+    orbFloat
+    4.5s
+    1.2s
+    ease-in-out
+    infinite;
+}
+
+
+.scene__orb--4 {
+  width: 6px;
+  height: 6px;
+
+  top: 33%;
+  left: 16%;
+
+  animation:
+    orbFloat
+    4.8s
+    1.7s
+    ease-in-out
+    infinite;
+}
+
+
+.scene__orb--5 {
+  width: 5px;
+  height: 5px;
+
+  top: 25%;
+  right: 7%;
+
+  animation:
+    orbFloat
+    5.5s
+    0.4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes sceneAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(50px)
+      scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+
+@keyframes coreFloat {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-10px)
+      rotateX(3deg)
+      rotateY(-4deg);
+  }
+}
+
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform:
+      translateZ(30px)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateZ(30px)
+      translateY(-5px);
+  }
+}
+
+
+@keyframes logoHalo {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(0.88);
+
+    opacity: 0.5;
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      scale(1.16);
+
+    opacity: 1;
+  }
+}
+
+
+@keyframes ringPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scale(1.05);
+
+    opacity: 0.85;
+  }
+}
+
+
+@keyframes ringRotate {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+@keyframes orbitOne {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(360deg);
+  }
+}
+
+
+@keyframes orbitTwo {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(70deg)
+      rotateZ(55deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(70deg)
+      rotateZ(415deg);
+  }
+}
+
+
+@keyframes orbitThree {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateY(68deg)
+      rotateZ(25deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateY(68deg)
+      rotateZ(385deg);
+  }
+}
+
+
+@keyframes metierFloat {
+
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+
+@keyframes dotPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 4px
+      rgba(123, 75, 224, 0.08),
+
+      0 0 12px
+      rgba(123, 75, 224, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 7px
+      rgba(123, 75, 224, 0.02),
+
+      0 0 20px
+      rgba(123, 75, 224, 0.55);
+  }
+}
+
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-14px)
+      scale(1.2);
+  }
+}
+
+
+@keyframes logoShine {
+
+  0% {
+    left: -100%;
+  }
+
+  45%,
+  100% {
+    left: 160%;
+  }
+}
+
+
+@keyframes gridMove {
+
+  from {
+    transform:
+      perspective(900px)
+      rotateX(62deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      perspective(900px)
+      rotateX(62deg)
+      rotateZ(360deg);
+  }
+}
+
+
+@keyframes glowFloat1 {
+
+  from {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate(-25px, 20px)
+      scale(1.12);
+  }
+}
+
+
+@keyframes glowFloat2 {
+
+  from {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate(25px, -20px)
+      scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   BARRE DE BRIEF
+   ========================================================= */
+
+.barre {
+  position: relative;
+
+  z-index: 15;
+
+  margin-top:
+    clamp(30px, 4vw, 48px);
+
+  padding: 14px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr))
+    auto;
+
+  gap: 12px;
+
+  align-items: end;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.82);
+
+  border-radius: 24px;
+
+  background:
+    rgba(255, 255, 255, 0.56);
+
+  backdrop-filter:
+    blur(24px);
+
+  -webkit-backdrop-filter:
+    blur(24px);
+
+  box-shadow:
+    0 25px 65px
+    rgba(62, 15, 141, 0.12);
+
+  animation:
+    barreAppear
+    1s
+    0.55s
+    ease
+    both;
+}
+
+
+/* =========================================================
+   CHAMP
+   ========================================================= */
+
+.barre__champ {
+  display: grid;
+
+  gap: 6px;
+
+  min-width: 0;
+}
+
+
+.barre__champ label {
+  padding-left: 5px;
+
+  color: var(--texte-doux);
+
+  font-size: 0.69rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.barre__champ select {
+  appearance: none;
+
+  width: 100%;
+  height: 46px;
+
+  padding:
+    0 38px
+    0 15px;
+
+  border:
+    1px solid
+    rgba(23, 16, 41, 0.09);
+
+  border-radius: 999px;
+
+  background-color:
+    rgba(255, 255, 255, 0.94);
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236a6383' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position:
+    right 14px center;
+
+  color: var(--texte);
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.barre__champ select:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(62, 15, 141, 0.18);
+
+  box-shadow:
+    0 8px 20px
+    rgba(62, 15, 141, 0.07);
+}
+
+
+.barre__champ select:focus {
+  outline: none;
+
+  border-color:
+    var(--violet);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(62, 15, 141, 0.08);
+}
+
+
+/* =========================================================
+   BOUTON BRIEF
+   ========================================================= */
+
+.barre__action {
+  height: 46px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BANDEAU DES MÉTIERS
+   ========================================================= */
+
+.bandeau {
+  position: relative;
+
+  padding:
+    clamp(45px, 5vw, 65px)
+    0
+    12px;
+
+  overflow: hidden;
+
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+}
+
+
+.bandeau__piste {
+  display: flex;
+
+  gap: 38px;
+
+  width: max-content;
+
+  animation:
+    defile
+    35s
+    linear
+    infinite;
+}
+
+
+.bandeau__item {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  color: #9b93b6;
+
+  font-family: var(--titre);
+
+  font-size: 0.94rem;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.bandeau__item::after {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background:
+    var(--lavande-3);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(201, 187, 242, 0.15);
+}
+
+
+.bandeau:hover .bandeau__piste {
+  animation-play-state:
+    paused;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes titleAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+@keyframes lineReveal {
+
+  from {
+    width: 0;
+
+    opacity: 0;
+  }
+
+  to {
+    width: 72px;
+
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes contentAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes signalAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes sceneAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(50px)
+      scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+
+}
+
+
+@keyframes barreAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   FLOTTEMENT DU NOYAU
+   ========================================================= */
+
+@keyframes coreFloat {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-10px)
+      rotateX(2deg)
+      rotateY(-3deg);
+  }
+
+}
+
+
+/* =========================================================
+   FLOTTEMENT LOGO
+   ========================================================= */
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform:
+      translateZ(25px)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateZ(25px)
+      translateY(-4px);
+  }
+
+}
+
+
+/* =========================================================
+   HALO
+   ========================================================= */
+
+@keyframes logoHalo {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(0.9);
+
+    opacity: 0.55;
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   ANNEAU
+   ========================================================= */
+
+@keyframes ringPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scale(1.04);
+
+    opacity: 0.8;
+  }
+
+}
+
+
+@keyframes ringRotate {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   ORBES
+   ========================================================= */
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-13px)
+      scale(1.18);
+  }
+
+}
+
+
+/* =========================================================
+   GRANDS HALOS
+   ========================================================= */
+
+@keyframes heroFloat {
+
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(25px, -20px, 0)
+      scale(1.06);
+  }
+
+}
+
+
+@keyframes heroLight {
+
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(-30px, 25px, 0)
+      scale(1.08);
+  }
+
+}
+
+
+/* =========================================================
+   ORBITES
+   ========================================================= */
+
+@keyframes orbitTilt {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(60deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(60deg)
+      rotateZ(360deg);
+  }
+
+}
+
+
+@keyframes orbitRotate {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(360deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotateX(68deg)
+      rotateZ(0deg);
+  }
+
+}
+
+
+/* =========================================================
+   REFLET LOGO
+   ========================================================= */
+
+@keyframes logoShine {
+
+  0% {
+    left: -80%;
+  }
+
+  45%,
+  100% {
+    left: 150%;
+  }
+
+}
+
+
+/* =========================================================
+   SIGNAL
+   ========================================================= */
+
+@keyframes signalPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 5px
+      rgba(62, 15, 141, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 9px
+      rgba(62, 15, 141, 0.02);
+  }
+
+}
+
+
+/* =========================================================
+   BANDEAU
+   ========================================================= */
+
+@keyframes defile {
+
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%);
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE — TABLETTES
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .conteneur {
+    width: min(100% - 40px, 1000px);
+    margin-inline: auto;
+  }
+
+  /* HERO */
+
+  .heros {
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
+
+  .heros__grille {
+    grid-template-columns: 1fr;
+    gap: 55px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .heros__contenu {
+    width: min(100%, 760px);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heros__signal {
+    justify-content: center;
+  }
+
+  .heros h1 {
+    text-align: center;
+  }
+
+  .heros__texte,
+  .heros__sous-texte {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .heros__actions {
+    justify-content: center;
+  }
+
+  /* SCÈNE 3D */
+
+  .scene {
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+
+  /* BARRE DE BRIEF */
+
+  .barre {
+    width: min(100%, 850px);
+    margin-inline: auto;
+  }
+
+  .barre__champs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* CHIFFRES */
+
+  .heros__chiffres {
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   TABLETTES — PORTRAIT
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .conteneur {
+    width: min(100% - 32px, 680px);
+  }
+
+  /* HERO */
+
+  .heros {
+    padding-top: 85px;
+    padding-bottom: 55px;
+    overflow: hidden;
+  }
+
+  .heros__grille {
+    gap: 42px;
+  }
+
+  .heros__contenu {
+    width: 100%;
+  }
+
+  .heros h1 {
+    font-size: clamp(2.1rem, 7vw, 3.2rem);
+    line-height: 1.08;
+    max-width: 650px;
+  }
+
+  .heros__texte {
+    max-width: 620px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .heros__sous-texte {
+    max-width: 570px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .heros__signal {
+    font-size: 0.76rem;
+  }
+
+  /* BOUTONS */
+
+  .heros__actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .heros__actions .btn {
+    min-width: 190px;
+    justify-content: center;
+  }
+
+  /* SCÈNE */
+
+  .scene {
+    width: min(100%, 500px);
+    margin-inline: auto;
+  }
+
+  .scene__noyau {
+    width: 175px;
+    height: 175px;
+  }
+
+  .scene__logo-ring {
+    width: 132px;
+    height: 132px;
+  }
+
+  .scene__halo {
+    width: 290px;
+    height: 290px;
+  }
+
+  /* MÉTIERS */
+
+  .scene__metier {
+    font-size: 0.65rem;
+    padding: 8px 10px;
+  }
+
+  .scene__metier--1 {
+    top: 5%;
+    left: 2%;
+  }
+
+  .scene__metier--2 {
+    top: 5%;
+    right: 2%;
+  }
+
+  .scene__metier--3 {
+    top: 43%;
+    right: -2%;
+  }
+
+  .scene__metier--4 {
+    right: 2%;
+    bottom: 5%;
+  }
+
+  .scene__metier--5 {
+    left: 2%;
+    bottom: 5%;
+  }
+
+  .scene__metier--6 {
+    top: 43%;
+    left: -2%;
+  }
+
+  /* BRIEF */
+
+  .barre {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .barre__champs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .barre__action {
+    width: 100%;
+  }
+
+  /* BANDEAU */
+
+  .bandeau {
+    overflow: hidden;
+  }
+}
+
+
+/* =========================================================
+   MOBILES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .conteneur {
+    width: calc(100% - 28px);
+    margin-inline: auto;
+  }
+
+  /* HERO */
+
+  .heros {
+    min-height: auto;
+    padding-top: 75px;
+    padding-bottom: 40px;
+  }
+
+  .heros__grille {
+    gap: 32px;
+  }
+
+  .heros__contenu {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* SIGNAL */
+
+  .heros__signal {
+    max-width: 100%;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .heros__signal-dot {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+  }
+
+  /* TITRE */
+
+  .heros h1 {
+    width: 100%;
+    max-width: 430px;
+
+    margin-inline: auto;
+
+    font-size: clamp(1.9rem, 9vw, 2.55rem);
+    line-height: 1.12;
+
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+
+  .heros__separator {
+    white-space: nowrap;
+  }
+
+  /* TEXTE */
+
+  .heros__texte {
+    width: 100%;
+    max-width: 430px;
+
+    margin-inline: auto;
+
+    font-size: 0.91rem;
+    line-height: 1.7;
+
+    text-align: center;
+  }
+
+  .heros__sous-texte {
+    width: 100%;
+    max-width: 410px;
+
+    margin-inline: auto;
+
+    font-size: 0.82rem;
+    line-height: 1.65;
+
+    text-align: center;
+  }
+
+  /* ACTIONS */
+
+  .heros__actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+  }
+
+  .heros__actions .btn {
+    width: min(100%, 310px);
+    min-width: 0;
+
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  /* CHIFFRES */
+
+  .heros__chiffres {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    justify-items: center;
+  }
+
+  /* =====================================================
+     SCÈNE 3D MOBILE
+     ===================================================== */
+
+  .scene {
+    width: min(100%, 430px);
+    min-width: 0;
+
+    margin-inline: auto;
+
+    aspect-ratio: 1 / 1;
+  }
+
+  .scene__noyau {
+    width: 145px;
+    height: 145px;
+  }
+
+  .scene__logo-ring {
+    width: 108px;
+    height: 108px;
+    border-width: 4px;
+  }
+
+  .scene__halo {
+    width: 230px;
+    height: 230px;
+  }
+
+  /* ORBITES */
+
+  .scene__orbit--1 {
+    width: 82%;
+  }
+
+  .scene__orbit--2 {
+    width: 92%;
+  }
+
+  .scene__orbit--3 {
+    height: 82%;
+  }
+
+  /* MÉTIERS */
+
+  .scene__metier {
+    max-width: 135px;
+
+    padding: 7px 9px;
+
+    gap: 5px;
+
+    font-size: 0.56rem;
+    line-height: 1.15;
+
+    white-space: normal;
+  }
+
+  .scene__metier-dot {
+    width: 5px;
+    height: 5px;
+    flex-basis: 5px;
+  }
+
+  .scene__metier--1 {
+    top: 3%;
+    left: 0;
+  }
+
+  .scene__metier--2 {
+    top: 3%;
+    right: 0;
+  }
+
+  .scene__metier--3 {
+    top: 43%;
+    right: -1%;
+  }
+
+  .scene__metier--4 {
+    right: 0;
+    bottom: 3%;
+  }
+
+  .scene__metier--5 {
+    left: 0;
+    bottom: 3%;
+  }
+
+  .scene__metier--6 {
+    top: 43%;
+    left: -1%;
+  }
+
+  /* ORBES */
+
+  .scene__orb--1 {
+    top: 15%;
+    right: 17%;
+  }
+
+  .scene__orb--2 {
+    left: 12%;
+    bottom: 25%;
+  }
+
+  .scene__orb--3 {
+    right: 16%;
+    bottom: 15%;
+  }
+
+  /* BRIEF */
+
+  .barre {
+    width: 100%;
+    margin-top: 25px;
+
+    padding: 17px;
+
+    border-radius: 20px;
+  }
+
+  .barre__champs {
+    grid-template-columns: 1fr;
+  }
+
+  .barre__champ {
+    width: 100%;
+  }
+
+  .barre__action,
+  .barre button {
+    width: 100%;
+  }
+
+  /* BANDEAU */
+
+  .bandeau__item {
+    font-size: 0.72rem;
+    padding-inline: 14px;
+  }
+}
+
+
+/* =========================================================
+   PETITS MOBILES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .conteneur {
+    width: calc(100% - 22px);
+  }
+
+  .heros {
+    padding-top: 65px;
+  }
+
+  .heros h1 {
+    font-size: 1.75rem;
+  }
+
+  .heros__texte {
+    font-size: 0.86rem;
+  }
+
+  .heros__sous-texte {
+    font-size: 0.78rem;
+  }
+
+  .heros__actions .btn {
+    width: 100%;
+    max-width: 290px;
+  }
+
+  /* SCÈNE PLUS COMPACTE */
+
+  .scene {
+    width: 100%;
+  }
+
+  .scene__noyau {
+    width: 125px;
+    height: 125px;
+  }
+
+  .scene__logo-ring {
+    width: 94px;
+    height: 94px;
+  }
+
+  .scene__halo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .scene__metier {
+    max-width: 112px;
+
+    padding: 6px 7px;
+
+    font-size: 0.50rem;
+  }
+
+  .scene__metier--1,
+  .scene__metier--5 {
+    left: -2%;
+  }
+
+  .scene__metier--2,
+  .scene__metier--4 {
+    right: -2%;
+  }
+
+  .scene__metier--3 {
+    right: -3%;
+  }
+
+  .scene__metier--6 {
+    left: -3%;
+  }
+
+  .heros__chiffres {
+    gap: 8px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+  .heros h1 {
+    font-size: 1.55rem;
+  }
+
+  .heros__texte {
+    font-size: 0.82rem;
+  }
+
+  .scene__metier {
+    max-width: 95px;
+    font-size: 0.45rem;
+  }
+
+  .scene__noyau {
+    width: 112px;
+    height: 112px;
+  }
+
+  .scene__logo-ring {
+    width: 84px;
+    height: 84px;
+  }
+}
+
+
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scene *,
+  .heros *,
+  .bandeau__piste {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}

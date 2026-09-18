@@ -1,0 +1,875 @@
+
+/* =========================================================
+   ÉQUIPES — COMMUNITY SHOWCASE
+   ========================================================= */
+
+.equipes-section {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   EN-TÊTE
+   ========================================================= */
+
+.equipes__entete {
+  max-width: 700px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.equipes__sur-titre {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 15px;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+
+  color: var(--violet);
+}
+
+.equipes__sur-titre::before,
+.equipes__sur-titre::after {
+  content: "";
+
+  width: 22px;
+  height: 1px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--violet) 35%,
+      transparent
+    );
+}
+
+.equipes__entete p {
+  max-width: 55ch;
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   SHOWCASE
+   ========================================================= */
+
+.equipes__showcase {
+  position: relative;
+
+  margin-top: clamp(45px, 6vw, 70px);
+
+  padding-inline: 45px;
+}
+
+
+/* =========================================================
+   GRILLE
+   ========================================================= */
+
+.equipe {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: clamp(18px, 2.5vw, 28px);
+
+  min-height: 390px;
+}
+
+
+/* =========================================================
+   CARTE MEMBRE
+   ========================================================= */
+
+.membre {
+  position: relative;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: var(--blanc);
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--violet) 9%,
+      transparent
+    );
+
+  box-shadow:
+    0 25px 70px -48px
+    rgba(62, 15, 141, 0.65);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.4s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+
+  animation:
+    membreEntree 0.65s cubic-bezier(.2,.8,.2,1)
+    both;
+}
+
+
+/* animation différente selon la direction */
+
+.equipes__showcase--next .membre {
+  animation-name: membreDepuisDroite;
+}
+
+.equipes__showcase--prev .membre {
+  animation-name: membreDepuisGauche;
+}
+
+
+.membre:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.membre:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+
+@keyframes membreDepuisDroite {
+
+  from {
+    opacity: 0;
+    transform:
+      translateX(45px)
+      translateY(12px)
+      scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0)
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes membreDepuisGauche {
+
+  from {
+    opacity: 0;
+    transform:
+      translateX(-45px)
+      translateY(12px)
+      scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0)
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+.membre:hover {
+  z-index: 3;
+
+  transform:
+    translateY(-9px)
+    scale(1.015);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--violet) 22%,
+      transparent
+    );
+
+  box-shadow:
+    0 35px 80px -45px
+    rgba(62, 15, 141, 0.75);
+}
+
+
+/* =========================================================
+   PHOTO
+   ========================================================= */
+
+.membre__photo {
+  position: relative;
+
+  height: 245px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--lavande),
+      var(--lavande-2)
+    );
+}
+
+
+.membre__photo::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(17, 34, 64, 0.25),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+
+.membre__photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+
+.membre:hover .membre__photo img {
+  transform: scale(1.06);
+}
+
+
+/* =========================================================
+   NUMÉRO
+   ========================================================= */
+
+.membre__numero {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 16px;
+  right: 17px;
+
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.86);
+
+  backdrop-filter: blur(10px);
+
+  color: var(--violet);
+
+  font-family: var(--titre);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  box-shadow:
+    0 8px 20px -12px
+    rgba(0,0,0,.3);
+}
+
+
+/* =========================================================
+   CONTENU
+   ========================================================= */
+
+.membre__contenu {
+  position: relative;
+
+  padding:
+    22px
+    22px
+    24px;
+}
+
+
+.membre__role {
+  margin: 0 0 6px;
+
+  font-size: 0.73rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  color: var(--iris);
+}
+
+
+.membre h3 {
+  margin: 0;
+
+  font-size: 1.2rem;
+
+  letter-spacing: -0.025em;
+}
+
+
+.membre__mot {
+  margin-top: 9px;
+
+  font-size: 0.88rem;
+
+  line-height: 1.6;
+
+  color: var(--texte-doux);
+
+  max-width: 34ch;
+}
+
+/* =========================================================
+   RÉSEAUX
+   ========================================================= */
+
+.membre__reseaux {
+  display: flex;
+
+  gap: 9px;
+
+  margin-top: 18px;
+}
+
+
+.membre__reseaux a {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: var(--brume-tiede);
+
+  color: var(--violet);
+
+  transition:
+    transform .25s cubic-bezier(.2,.8,.2,1),
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.membre__reseaux a svg {
+  transition: transform .25s ease;
+}
+
+
+.membre__reseaux a:hover {
+  transform: translateY(-4px) scale(1.05);
+
+  box-shadow:
+    0 12px 20px -10px
+    rgba(62, 15, 141, .45);
+}
+
+
+.membre__reseaux a:hover svg {
+  transform: scale(1.08);
+}
+
+
+.membre__reseaux a:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+
+/* couleur de marque au survol, plutôt qu'un violet unique */
+
+.membre__reseaux a[aria-label^="WhatsApp"]:hover {
+  background: #25d366;
+  color: #fff;
+}
+
+.membre__reseaux a[aria-label^="LinkedIn"]:hover {
+  background: #0a66c2;
+  color: #fff;
+}
+
+.membre__reseaux a[aria-label^="Facebook"]:hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+/* =========================================================
+   NAVIGATION LATÉRALE
+   ========================================================= */
+
+.equipes__navigation {
+  position: absolute;
+
+  z-index: 10;
+
+  top: 50%;
+
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--violet) 15%,
+      transparent
+    );
+
+  border-radius: 50%;
+
+  background: var(--blanc);
+
+  color: var(--violet);
+
+  box-shadow:
+    0 14px 30px -18px
+    rgba(62, 15, 141, .55);
+
+  cursor: pointer;
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.equipes__navigation:hover {
+  transform:
+    translateY(-50%)
+    scale(1.08);
+
+  background: var(--violet);
+
+  color: var(--blanc);
+
+  box-shadow:
+    0 18px 35px -18px
+    rgba(62, 15, 141, .7);
+}
+
+
+.equipes__navigation--prev {
+  left: 0;
+}
+
+
+.equipes__navigation--next {
+  right: 0;
+}
+
+
+/* =========================================================
+   COMPTEUR + PROGRESSION
+   ========================================================= */
+
+.equipes__controle {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+
+.equipes__compteur {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 5px;
+
+  min-width: 58px;
+
+  font-family: var(--titre);
+
+  color: var(--texte-doux);
+
+  font-size: .78rem;
+}
+
+
+.equipes__compteur strong {
+  color: var(--violet);
+
+  font-size: 1rem;
+}
+
+
+.equipes__progression {
+  position: relative;
+
+  width: 130px;
+  height: 2px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--violet) 12%,
+      transparent
+    );
+}
+
+
+.equipes__progression span {
+  position: absolute;
+
+  inset: 0 auto 0 0;
+
+  display: block;
+
+  border-radius: inherit;
+
+  background: var(--violet);
+
+  transition: width .45s ease;
+}
+
+
+.equipes__fleche-mobile {
+  display: none;
+}
+
+
+/* =========================================================
+   APPEL À CANDIDATURE
+   ========================================================= */
+
+.equipe__appel {
+  position: relative;
+
+  overflow: hidden;
+
+  margin-top: 55px;
+
+  padding:
+    30px
+    clamp(25px, 4vw, 42px);
+
+  border-radius: 26px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--violet),
+      var(--violet-fonce)
+    );
+
+  color: var(--blanc);
+
+  box-shadow:
+    0 28px 60px -40px
+    rgba(62, 15, 141, .75);
+}
+
+
+/* halo */
+
+.equipe__appel::after {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  right: -90px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  border: 1px solid
+    rgba(255,255,255,.13);
+
+  box-shadow:
+    0 0 0 35px rgba(255,255,255,.025),
+    0 0 0 70px rgba(255,255,255,.02);
+
+  pointer-events: none;
+}
+
+
+.equipe__appel-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: .68rem;
+  font-weight: 800;
+
+  letter-spacing: .13em;
+
+  color:
+    rgba(255,255,255,.55);
+}
+
+
+.equipe__appel p {
+  margin: 0;
+
+  max-width: 50ch;
+
+  font-size: .9rem;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255,255,255,.72);
+}
+
+
+.equipe__appel strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--blanc);
+
+  font-family: var(--titre);
+
+  font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .equipe {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    min-height: 380px;
+  }
+
+  .membre:nth-child(3) {
+    display: none;
+  }
+
+  .membre__photo {
+    height: 230px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .equipes__showcase {
+    padding-inline: 0;
+  }
+
+  .equipe {
+    grid-template-columns: 1fr;
+
+    min-height: 0;
+  }
+
+  .membre:nth-child(2),
+  .membre:nth-child(3) {
+    display: none;
+  }
+
+  .membre {
+    max-width: 420px;
+
+    width: 100%;
+
+    margin-inline: auto;
+
+    border-radius: 24px;
+  }
+
+  .membre__photo {
+    height: 270px;
+  }
+
+  .equipes__navigation {
+    display: none;
+  }
+
+  .equipes__controle {
+    gap: 11px;
+  }
+
+  .equipes__fleche-mobile {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--violet) 14%,
+        transparent
+      );
+
+    border-radius: 50%;
+
+    background: var(--blanc);
+
+    color: var(--violet);
+
+    cursor: pointer;
+  }
+
+  .equipes__progression {
+    width: 95px;
+  }
+
+  .equipe__appel {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 25px 22px;
+
+    margin-top: 40px;
+  }
+
+  .equipe__appel .btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .membre__photo {
+    height: 235px;
+  }
+
+  .membre__contenu {
+    padding: 19px;
+  }
+
+  .equipes__progression {
+    width: 75px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+.equipes__navigation:focus-visible,
+.equipes__fleche-mobile:focus-visible,
+.membre__reseaux a:focus-visible {
+  outline: 2px solid var(--violet);
+
+  outline-offset: 3px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .membre {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .membre__photo img,
+  .membre__reseaux a,
+  .equipes__navigation {
+    transition: none !important;
+  }
+}
+@keyframes membreDevoile {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+    transform: perspective(900px) rotateY(-8deg) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0%);
+    transform: perspective(900px) rotateY(0deg) translateY(0);
+  }
+}
+
+@keyframes membreDevoileInverse {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: perspective(900px) rotateY(8deg) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0% 0 0);
+    transform: perspective(900px) rotateY(0deg) translateY(0);
+  }
+}
+
+.equipes__showcase--next .membre {
+  animation-name: membreDevoile;
+  animation-duration: 0.7s;
+}
+
+.equipes__showcase--prev .membre {
+  animation-name: membreDevoileInverse;
+  animation-duration: 0.7s;
+}
