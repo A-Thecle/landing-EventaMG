@@ -219,65 +219,161 @@ export const equipes = {
     "Des talents différents qui mettent leurs expertises en commun pour donner vie aux projets.",
 
   membres: [
-    {
-      nom: "Tiana R.",
-      role: "Développeur principal",
-      mot: "Construit les plateformes web et encadre les revues de code.",
-      image: "/images/Andry.jpeg",
-      whatsapp: "https://wa.me/261XXXXXXXXX",
-      linkedin: "https://www.linkedin.com/in/xxxxx",
-      facebook: "https://www.facebook.com/xxxxx",
-    },
-
-    {
-      nom: "Niaina A.",
-      role: "Experte en IA",
-      mot: "Conçoit les assistants et les automatisations sur mesure.",
-      image: "/images/Fanasina.jpeg",
-      whatsapp: "https://wa.me/261XXXXXXXXX",
-      linkedin: "https://www.linkedin.com/in/xxxxx",
-      facebook: "https://www.facebook.com/xxxxx",
-    },
-
-    {
-      nom: "Mamy R.",
-      role: "Photographe",
-      mot: "Couvre les événements et signe les portraits de marque.",
-      image: "/images/Frederic.jpeg",
-      whatsapp: "https://wa.me/261XXXXXXXXX",
-      linkedin: "https://www.linkedin.com/in/xxxxx",
-      facebook: "https://www.facebook.com/xxxxx",
-    },
-     {
-      nom: "Mamy R.",
-      role: "Photographe",
-      mot: "Couvre les événements et signe les portraits de marque.",
-      image: "/images/Kalo.jpeg",
-      whatsapp: "https://wa.me/261XXXXXXXXX",
-      linkedin: "https://www.linkedin.com/in/xxxxx",
-      facebook: "https://www.facebook.com/xxxxx",
-    },
-     {
-      nom: "Mamy R.",
-      role: "Photographe",
-      mot: "Couvre les événements et signe les portraits de marque.",
-      image: "/images/Rinah.jpeg",
-      whatsapp: "https://wa.me/261XXXXXXXXX",
-      linkedin: "https://www.linkedin.com/in/xxxxx",
-      facebook: "https://www.facebook.com/xxxxx",
-    },
-       {
-      nom: "Mamy R.",
-      role: "Photographe",
-      mot: "Couvre les événements et signe les portraits de marque.",
-      image: "/images/Voahary.jpeg",
-      whatsapp: "https://wa.me/261XXXXXXXXX",
-      linkedin: "https://www.linkedin.com/in/xxxxx",
-      facebook: "https://www.facebook.com/xxxxx",
-    },
-
-    // ...
-  ],
+  {
+    nom: "Ignace Razanajatovo",
+    role: "Responsable Commercial",
+    mot: "Assure que chaque client et prestataire vive la meilleure expérience possible.",
+    image: "/images/IGNACE.jpg",
+    whatsapp: "https://wa.me/261340165412",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "HALA Kanty",
+    role: "Développeur Web & Mobile",
+    mot: "Développeur d'applications performantes, il transforme vos idées en solutions numériques innovantes.",
+    image: "/images/hala.jpg",
+    whatsapp: "https://wa.me/261328535118",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Finaritra Sarobidy",
+    role: "Juriste & Business Manager",
+    mot: "Garantit la conformité légale et pilote la stratégie d'affaires pour assurer la croissance des projets.",
+    image: "/images/finaritra.jpg",
+    whatsapp: "https://wa.me/23055330073",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Andry Ramanantsoa",
+    role: "Développeur IA - Data Analyst - Data Scientist",
+    mot: "Développeur web fullstack JAVA, également Data Analyst et Data Scientist.",
+    image: "/images/Andry.jpeg",
+    whatsapp: "https://wa.me/261386720146",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Ismael Ramanantsoa",
+    role: "Photographe & Vidéaste",
+    mot: "Expert en photographie et vidéographie, il capture les moments les plus précieux.",
+    image: "/images/ismael.jpeg",
+    whatsapp: "https://wa.me/261325681906",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Kalo Ravaloharivony",
+    role: "Community Manager",
+    mot: "Gère l'image de marque et anime la communauté sur les réseaux sociaux avec créativité et engagement.",
+    image: "/images/Kalo.jpeg",
+    whatsapp: "https://wa.me/261348812284",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Antonio Visionnaire",
+    role: "Développeur & Mobile Designer",
+    mot: "Conçoit des interfaces intuitives et développe des applications mobiles fluides centrées sur l'utilisateur.",
+    image: "/images/antonio.jpeg",
+    whatsapp: "https://wa.me/261325728190",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Rinah Randrianarison",
+    role: "Formateur en Mathématiques et Physique",
+    mot: "Partage son savoir et accompagne avec pédagogie pour développer les compétences de l'équipe.",
+    image: "/images/Rinah.jpeg",
+    whatsapp: "https://wa.me/261343609445",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Vincent Randriatsara",
+    role: "Enseignant & Développeur Web fullstack",
+    mot: "Spécialiste du développement logiciel, il conçoit des architectures performantes pour le web et les applications de bureau.",
+    image: "/images/vincent.png",
+    whatsapp: "https://wa.me/261331844584",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Ralf Fanantenana",
+    role: "Développeur Web fullstack JAVA - Desktop",
+    mot: "Développe des solutions logicielles robustes et des applications web sur mesure pour répondre aux besoins techniques.",
+    image: "/images/ralph.jpg",
+    whatsapp: "https://wa.me/261331558975",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Mendrika Fitiavana",
+    role: "Développeur Web fullstack JAVA - Desktop",
+    mot: "Spécialiste du développement logiciel, il conçoit des architectures performantes pour le web et les applications de bureau.",
+    image: "/images/kevin.jpeg",
+    whatsapp: "https://wa.me/261332922510",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Voahary Ramerison",
+    role: "Développeuse IA - Data Analyst - Data Scientist & Modèle photo",
+    mot: "Allie expertise en intelligence artificielle et créativité artistique en tant que modèle photo.",
+    image: "/images/voahary.jpg",
+    whatsapp: "https://wa.me/261343177251",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Frédéric Andrianantenaina",
+    role: "Développeur IA - Data Analyst - Data Scientist - Web",
+    mot: "Intègre des solutions d'intelligence artificielle avancées dans des applications web modernes.",
+    image: "/images/frederic.jpg",
+    whatsapp: "https://wa.me/261385900080",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Fanasina Binah",
+    role: "Développeur IA - Data Analyst - Data Scientist - Web ",
+    mot: "Intègre des solutions d'intelligence artificielle avancées dans des applications web modernes.",
+    image: "/images/Fanasina.jpeg",
+    whatsapp: "https://wa.me/261387530368",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Tsiry R.",
+    role: "Développeur Web - Mobile - Designer",
+    mot: "Architecte de notre plateforme et passionné par le développement d'applications web et mobiles.",
+    image: "/images/ankafa.jpeg",
+    whatsapp: "https://wa.me/261383846660",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Thecle Nathalie",
+    role: "Développeuse Web & Intelligence Artificielle - Data Analyst - Data Scientist",
+    mot: "Travaille sur les applications web et l’intégration intelligente.",
+    image: "/images/Thecle.jpg",
+    whatsapp: "https://wa.me/261XXXXXXXXX",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  },
+  {
+    nom: "Voary R.",
+    role: "Économiste",
+    mot: "Analyse les dynamiques économiques et accompagne la stratégie de croissance.",
+    image: "/images/voary.jpg",
+    whatsapp: "https://wa.me/261XXXXXXXXX",
+    linkedin: "https://www.linkedin.com/in/xxxxx",
+    facebook: "https://www.facebook.com/xxxxx"
+  }
+]
+,
 
   appel: {
     titre: "Votre métier manque à la liste ?",
