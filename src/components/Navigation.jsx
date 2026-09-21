@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { marque, navigation } from "../data/content";
 import { useDefilement, useSectionActive } from "../lib/hooks";
+import "../styles/navigation.css";
 
 const identifiants = navigation.map((item) => item.id);
 
@@ -13,10 +14,15 @@ export default function Navigation() {
     <header className={`nav ${figee ? "nav--figee" : ""}`}>
       <div className="conteneur">
         <div className="nav__pilule">
-          <a href="#accueil" className="marque">
-            <span className="marque__sceau">{marque.initiales}</span>
-            {marque.nom}
-          </a>
+         <a href="#accueil" className="marque">
+  <img
+    src={marque.logo}
+    alt="Logo Eventa MG"
+    className="marque__logo"
+  />
+
+  <span>{marque.nom}</span>
+</a>
 
           <nav aria-label="Navigation principale">
             <ul className="nav__liens">

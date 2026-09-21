@@ -1,0 +1,669 @@
+/* =========================================================
+   EVENTA MG — FOOTER PREMIUM
+   ========================================================= */
+
+.pied {
+  position: relative;
+  overflow: hidden;
+
+  background: #ffffff;
+  color: #3e0f8d;
+
+  padding: 80px 0 28px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+
+/* =========================================================
+   DÉCORATIONS
+   ========================================================= */
+
+.pied::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -220px;
+  top: -220px;
+
+  border-radius: 50%;
+
+  background: rgba(62, 15, 141, 0.055);
+
+  pointer-events: none;
+}
+
+
+.pied::after {
+  content: "EVENTA MG";
+
+  position: absolute;
+
+  right: -20px;
+  bottom: -55px;
+
+  font-size: clamp(6rem, 15vw, 13rem);
+
+  font-weight: 900;
+
+  letter-spacing: -0.08em;
+
+  line-height: 1;
+
+  color: rgba(62, 15, 141, 0.035);
+
+  pointer-events: none;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.pied__cta {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding: 42px;
+
+  margin-bottom: 75px;
+
+  border-radius: 30px;
+
+  background: #3e0f8d;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 25px 60px rgba(62, 15, 141, 0.18);
+
+  overflow: hidden;
+}
+
+
+/* décoration dans le CTA */
+
+.pied__cta::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -70px;
+  top: -90px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 0 0 35px rgba(255, 255, 255, 0.025),
+    0 0 0 70px rgba(255, 255, 255, 0.02);
+
+  pointer-events: none;
+}
+
+
+.pied__cta-texte {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   SUR-TITRE
+   ========================================================= */
+
+.pied__sur-titre {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 12px;
+
+  color: #eeeeee;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+}
+
+
+.pied__sur-titre::before {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   TITRE CTA
+   ========================================================= */
+
+.pied__cta h2 {
+  margin: 0;
+
+  max-width: 650px;
+
+  font-size: clamp(2rem, 4vw, 3.2rem);
+
+  line-height: 1.03;
+
+  letter-spacing: -0.055em;
+
+  color: #ffffff;
+}
+
+
+.pied__cta h2 span {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.68);
+}
+
+
+.pied__cta p {
+  max-width: 570px;
+
+  margin: 16px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.94rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOUTON
+   ========================================================= */
+
+.pied__cta-bouton {
+  position: relative;
+  z-index: 3;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 15px 22px;
+
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: #3e0f8d;
+
+  font-size: 0.9rem;
+
+  font-weight: 800;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.pied__cta-bouton:hover {
+  transform: translateY(-4px);
+
+  background: #eeeeee;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+.pied__cta-bouton svg {
+  transition: transform 0.25s ease;
+}
+
+
+.pied__cta-bouton:hover svg {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ZONE PRINCIPALE
+   ========================================================= */
+
+.pied__haut {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.6fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 45px;
+
+  padding-bottom: 48px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+/* =========================================================
+   MARQUE
+   ========================================================= */
+
+.pied__marque {
+  min-width: 0;
+}
+
+
+.pied__logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  color: #3e0f8d;
+}
+
+
+.pied__logo:hover {
+  color: #3e0f8d;
+}
+
+
+.pied__marque > p {
+  max-width: 330px;
+
+  margin: 18px 0 23px;
+
+  color: #777777;
+
+  font-size: 0.9rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   LOCALISATION
+   ========================================================= */
+
+.pied__localisation {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #666666;
+
+  font-size: 0.82rem;
+}
+
+
+.pied__petite-icone {
+  display: grid;
+
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 10px;
+
+  background: #eeeeee;
+
+  color: #3e0f8d;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.pied__localisation:hover .pied__petite-icone {
+  background: #3e0f8d;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   COLONNES
+   ========================================================= */
+
+.pied__colonne h4 {
+  margin: 4px 0 19px;
+
+  color: #3e0f8d;
+
+  font-size: 0.82rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.pied ul {
+  display: grid;
+
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* =========================================================
+   LIENS
+   ========================================================= */
+
+.pied__lien {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #777777;
+
+  font-size: 0.87rem;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.pied__lien:hover {
+  color: #3e0f8d;
+
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ICÔNES SOCIALES
+   ========================================================= */
+
+.pied__social-icone {
+  display: grid;
+
+  place-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 9px;
+
+  background: #eeeeee;
+
+  color: #3e0f8d;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.pied__lien:hover .pied__social-icone {
+  background: #3e0f8d;
+
+  color: #ffffff;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   LIEN EXTERNE
+   ========================================================= */
+
+.pied__externe {
+  opacity: 0;
+
+  margin-left: 1px;
+
+  color: #3e0f8d;
+
+  transform: translate(-3px, 2px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.pied__lien:hover .pied__externe {
+  opacity: 1;
+
+  transform: translate(0, 0);
+}
+
+
+/* =========================================================
+   BAS
+   ========================================================= */
+
+.pied__bas {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 22px;
+
+  color: #888888;
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   RETOUR EN HAUT
+   ========================================================= */
+
+.pied__bas-liens a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #666666;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.pied__bas-liens a span {
+  display: grid;
+
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+
+  background: #eeeeee;
+
+  color: #3e0f8d;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.pied__bas-liens a:hover {
+  color: #3e0f8d;
+
+  transform: translateY(-2px);
+}
+
+
+.pied__bas-liens a:hover span {
+  background: #3e0f8d;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .pied {
+    padding-top: 60px;
+  }
+
+  .pied__cta {
+    padding: 32px;
+  }
+
+  .pied__haut {
+    grid-template-columns:
+      1.5fr 1fr 1fr;
+
+    gap: 35px;
+  }
+
+  .pied__marque {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .pied {
+    padding: 45px 0 20px;
+  }
+
+  .pied__cta {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 27px;
+
+    gap: 24px;
+
+    border-radius: 23px;
+  }
+
+  .pied__cta h2 {
+    font-size: 2rem;
+  }
+
+  .pied__cta p {
+    font-size: 0.86rem;
+  }
+
+  .pied__cta-bouton {
+    width: 100%;
+  }
+
+  .pied__haut {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px 25px;
+  }
+
+  .pied__marque {
+    grid-column: 1 / -1;
+  }
+
+  .pied__bas {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 13px;
+  }
+}
+
+
+/* =========================================================
+   PETIT MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .pied__haut {
+    grid-template-columns: 1fr;
+  }
+
+  .pied__cta {
+    padding: 23px;
+  }
+
+  .pied__cta h2 {
+    font-size: 1.75rem;
+  }
+
+  .pied::after {
+    font-size: 6rem;
+  }
+}

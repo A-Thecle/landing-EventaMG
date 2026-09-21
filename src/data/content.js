@@ -5,7 +5,7 @@
 
 export const marque = {
   nom: "Eventa MG",
-  initiales: "E",
+  logo: "/images/logo.jpeg",
   baseline:
     "Une communauté d'experts malgaches : code, IA, image, son, formation, commerce.",
 };
@@ -387,13 +387,13 @@ export const contact = {
   intro:
     "Décrivez-nous votre besoin en quelques lignes. Nous revenons vers vous sous 48 heures ouvrées avec le bon interlocuteur.",
   coordonnees: [
-    { etiquette: "Écrivez-nous", valeur: "contact@eventa-mg.com", icone: "mail" },
-    { etiquette: "Appelez-nous", valeur: "+261 34 00 000 00", icone: "tel" },
+    { etiquette: "Écrivez-nous", valeur: "eventamalagasy@gmail.com", icone: "mail" },
+    { etiquette: "Appelez-nous", valeur: "+261 38 67 201 46", icone: "tel" },
     { etiquette: "Retrouvez-nous", valeur: "Antananarivo, Madagascar", icone: "lieu" },
   ],
   sujets: [
     "Développement web ou mobile",
-    "Intelligence artificielle",
+    "Integration d'IA ou automatisation",
     "Photographie & vidéo",
     "Sonorisation & DJ",
     "Formation & cours",
@@ -412,14 +412,54 @@ export const pied = {
         href: `#${item.id}`,
       })),
     },
+
+    {
+      titre: "Expertises",
+      liens: [
+        {
+          libelle: "Développement web & mobile",
+          href: "#services",
+        },
+        {
+          libelle: "Intelligence artificielle",
+          href: "#services",
+        },
+        {
+          libelle: "Photo & vidéo",
+          href: "#services",
+        },
+        {
+          libelle: "Son & événementiel",
+          href: "#services",
+        },
+        {
+          libelle: "Formation",
+          href: "#services",
+        },
+      ],
+    },
+
     {
       titre: "Nous suivre",
       liens: [
-        { libelle: "Facebook", href: "#" },
-        { libelle: "LinkedIn", href: "#" },
-        { libelle: "Instagram", href: "#" },
+        {
+          libelle: "Facebook",
+          href: "https://www.facebook.com/profile.php?id=61593704705141",
+          icone: "facebook",
+        },
+        {
+          libelle: "LinkedIn",
+          href: "#",
+          icone: "linkedin",
+        },
+        {
+          libelle: "Instagram",
+          href: "#",
+          icone: "instagram",
+        },
       ],
     },
   ],
+
   mentions: "Tous droits réservés.",
 };

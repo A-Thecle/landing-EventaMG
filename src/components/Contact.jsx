@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { contact } from "../data/content";
 import Icone from "./Icones";
 
@@ -12,25 +13,62 @@ const champsVides = {
 export default function Contact() {
   const [valeurs, setValeurs] = useState(champsVides);
   const [envoye, setEnvoye] = useState(false);
+  const [envoiEnCours, setEnvoiEnCours] = useState(false);
 
   function modifier(evenement) {
     const { name, value } = evenement.target;
-    setValeurs((precedent) => ({ ...precedent, [name]: value }));
+
+    setValeurs((precedent) => ({
+      ...precedent,
+      [name]: value,
+    }));
+
     setEnvoye(false);
   }
 
-  function envoyer(evenement) {
+  async function envoyer(evenement) {
     evenement.preventDefault();
-    // Branchez ici votre API, EmailJS, Formspree ou votre backend.
-    console.log("Formulaire Eventa MG :", valeurs);
-    setEnvoye(true);
-    setValeurs(champsVides);
+
+    setEnvoiEnCours(true);
+    setEnvoye(false);
+
+    try {
+      await emailjs.send(
+        "service_ikjb7hh",
+        "template_l26fkv7",
+        {
+          nom: valeurs.nom,
+          email: valeurs.email,
+          sujet: valeurs.sujet,
+          message: valeurs.message,
+        },
+        {
+          publicKey: "NKcRkwlziSrviJyTb",
+        }
+      );
+
+      console.log("Email envoyé avec succès");
+
+      setEnvoye(true);
+      setValeurs(champsVides);
+
+    } catch (erreur) {
+      console.error("Erreur EmailJS :", erreur);
+
+      alert(
+        "Impossible d'envoyer le message pour le moment. Veuillez réessayer."
+      );
+
+    } finally {
+      setEnvoiEnCours(false);
+    }
   }
 
   return (
     <section className="section section--lavande" id="contact">
       <div className="conteneur">
         <div className="contact__grille">
+
           <div>
             <div className="entete entete--gauche">
               <h2>{contact.titre}</h2>
@@ -43,6 +81,7 @@ export default function Contact() {
                   <span className="coordonnee__icone">
                     <Icone nom={item.icone} taille={20} />
                   </span>
+
                   <span>
                     <small>{item.etiquette}</small>
                     <b>{item.valeur}</b>
@@ -53,9 +92,12 @@ export default function Contact() {
           </div>
 
           <form className="formulaire" onSubmit={envoyer}>
+
             <div className="champs">
+
               <div className="champ">
                 <label htmlFor="nom">Votre nom</label>
+
                 <input
                   id="nom"
                   name="nom"
@@ -68,6 +110,7 @@ export default function Contact() {
 
               <div className="champ">
                 <label htmlFor="email">Votre e-mail</label>
+
                 <input
                   id="email"
                   name="email"
@@ -81,6 +124,7 @@ export default function Contact() {
 
               <div className="champ champ--plein">
                 <label htmlFor="sujet">Votre besoin</label>
+
                 <select
                   id="sujet"
                   name="sujet"
@@ -88,13 +132,16 @@ export default function Contact() {
                   onChange={modifier}
                 >
                   {contact.sujets.map((sujet) => (
-                    <option key={sujet}>{sujet}</option>
+                    <option key={sujet} value={sujet}>
+                      {sujet}
+                    </option>
                   ))}
                 </select>
               </div>
 
               <div className="champ champ--plein">
                 <label htmlFor="message">Votre message</label>
+
                 <textarea
                   id="message"
                   name="message"
@@ -104,11 +151,21 @@ export default function Contact() {
                   required
                 />
               </div>
+
             </div>
 
-            <button className="btn btn--plein" type="submit">
-              Envoyer le message
-              <Icone nom="fleche" taille={18} />
+            <button
+              className="btn btn--plein"
+              type="submit"
+              disabled={envoiEnCours}
+            >
+              {envoiEnCours
+                ? "Envoi en cours..."
+                : "Envoyer le message"}
+
+              {!envoiEnCours && (
+                <Icone nom="fleche" taille={18} />
+              )}
             </button>
 
             {envoye ? (
@@ -120,7 +177,9 @@ export default function Contact() {
                 Réponse sous 48 heures ouvrées, par le membre concerné.
               </p>
             )}
+
           </form>
+
         </div>
       </div>
     </section>
